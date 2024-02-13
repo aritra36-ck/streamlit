@@ -47,7 +47,7 @@ st.sidebar.write("</ul>", unsafe_allow_html=True)  # End unordered list
 # Button for training the dataset
 if st.sidebar.button('Train the dataset'):
     # KMeans clustering
-    kmeans = KMeans(n_clusters=4, random_state=42)
+    kmeans = KMeans(n_clusters=3, random_state=42)
     df['Cluster'] = kmeans.fit_predict(features)
     st.session_state['trained'] = True  # Set the 'trained' state to True
 
