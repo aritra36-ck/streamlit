@@ -10,9 +10,9 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OrdinalEncoder
 from sklearn.decomposition import PCA
 
 # Load data
-@st.cache(allow_output_mutation=True)
+@st.cache_resource()
 def load_data():
-    df = pd.read_csv('https://raw.githubusercontent.com/aritra36-ck/Capstone_LV/main/customer_info.csv?token=GHSAT0AAAAAACOCII37YOXGXQTJI2AU2J54ZOJ3V4Q')
+    df = pd.read_csv('https://raw.githubusercontent.com/aritra36-ck/Capstone_File/main/customer_info.csv')
     return df.copy()  # Return a copy of the DataFrame to avoid mutation issues
 
 df = load_data()
@@ -36,6 +36,7 @@ st.write(df.describe())  # Display summary statistics
 
 st.sidebar.title("Features")
 selected_features = ['senior_citizen', 'partner', 'dependents', 'tenure', 'phone_service', 'multiple_lines', 'internet_service', 'online_security', 'online_backup', 'device_protection',  'tech_support', 'streaming_tv', 'streaming_movies', 'contract', 'paperless_billing', 'payment_method', 'monthly_charges', 'churn']
+# selected_features = ['senior_citizen', 'partner', 'dependents', 'tenure']
 
 # Display the list as bullet points
 st.sidebar.write("<ul>", unsafe_allow_html=True)  # Start unordered list
@@ -56,7 +57,7 @@ if st.sidebar.button('View visualization'):
     if 'trained' in st.session_state and st.session_state['trained']: # Check if the dataset is trained
         # PCA
         pca = PCA(n_components=3)  # Use 3 components for 3D plot
-        features[['PC1', 'PC2', 'PC3']] = pca.fit_transform(features)
+        df[['PC1', 'PC2', 'PC3']] = pca.fit_transform(features)
 
           # 3D Scatter plot with Plotly
         fig = px.scatter_3d(df, x='PC1', y='PC2', z='PC3', color='Cluster', title="Customer Segments",
@@ -83,8 +84,8 @@ if st.sidebar.button('View visualization'):
         fig.update_traces(textposition='outside', textfont=dict(color='black', size=12))
         st.plotly_chart(fig)
 
-         # loadings
-        loadings = pca.components_
+        # loadings
+        # loadings = pca.components_
 
         # # Create a DataFrame to display the loadings
         # loadings_df = pd.DataFrame(loadings, columns=features[selected_features].columns, index=['PC1', 'PC2', 'PC3'])
