@@ -35,7 +35,7 @@ st.write("Explore some initial insights from the dataset here, such as summary s
 st.write(df.describe())  # Display summary statistics
 
 st.sidebar.title("Features")
-selected_features = ['senior_citizen', 'partner', 'dependents', 'tenure', 'phone_service', 'multiple_lines', 'internet_service', 'online_security', 'online_backup', 'device_protection',  'tech_support', 'streaming_tv', 'streaming_movies', 'contract', 'paperless_billing', 'payment_method', 'monthly_charges', 'churn']
+selected_features = ['senior_citizen', 'partner', 'dependents', 'tenure', 'phone_service', 'multiple_lines', 'internet_service', 'online_security', 'online_backup', 'device_protection',  'tech_support', 'streaming_tv', 'streaming_movies', 'contract', 'paperless_billing', 'payment_method', 'monthly_charges']
 # selected_features = ['senior_citizen', 'partner', 'dependents', 'tenure']
 
 # Display the list as bullet points
