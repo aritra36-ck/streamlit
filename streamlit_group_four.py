@@ -3,8 +3,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np 
 import plotly.express as px
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OrdinalEncoder
 from sklearn.decomposition import PCA
