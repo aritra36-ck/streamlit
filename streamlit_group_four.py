@@ -69,8 +69,8 @@ if st.sidebar.button('View visualization'):
         cluster_means = features.groupby('Cluster')[item].mean()
 
         # Display the average feature values for each cluster
-        st.write("Segment Profiling: Understanding Customer Behavior through **Cluster Analysis**:")
-        st.write(cluster_means)
+        # st.write("Segment Profiling: Understanding Customer Behavior through **Cluster Analysis**:")
+        # st.write(cluster_means)
 
         cluster_counts = df['Cluster'].value_counts()
         cluster_counts_df = pd.DataFrame({'Cluster': cluster_counts.index, 'Count': cluster_counts.values})
